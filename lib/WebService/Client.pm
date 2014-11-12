@@ -1,7 +1,7 @@
 package WebService::Client;
 use Moo::Role;
 
-our $VERSION = '0.0001'; # VERSION
+our $VERSION = '0.0100'; # VERSION
 
 use HTTP::Request::Common qw(DELETE GET POST PUT);
 use JSON qw(decode_json encode_json);
@@ -26,6 +26,11 @@ has retries => ( is => 'ro', default => 0 );
 
 has logger => ( is => 'ro' );
 
+has content_type => (
+    is      => 'rw',
+    default => 'application/json',
+);
+
 sub get {
     my ($self, $path, $params) = @_;
     $params ||= {};
@@ -38,12 +43,14 @@ sub get {
 
 sub post {
     my ($self, $path, $params) = @_;
-    return $self->req(POST $path, content => encode_json $params);
+    $params = encode_json $params if $params and $self->content_type =~ /json/;
+    return $self->req(POST $path, ( content => $params ) x!! $params);
 }
 
 sub put {
     my ($self, $path, $params) = @_;
-    return $self->req(PUT $path, content => encode_json $params);
+    $params = encode_json $params if $params and $self->content_type =~ /json/;
+    return $self->req(PUT $path, ( content => $params ) x!! $params);
 }
 
 sub delete {
@@ -63,7 +70,7 @@ around qw(delete get post put) => sub {
 
 sub req {
     my ($self, $req) = @_;
-    $req->header(content_type => 'application/json');
+    $req->header(content_type => $self->content_type);
     $self->_log_request($req);
     my $res = $self->ua->request($req);
     Moo::Role->apply_roles_to_object($res, 'HTTP::Response::Stringable');
@@ -76,7 +83,7 @@ sub req {
         $self->_log_response($res);
     }
 
-    return undef if $res->code =~ /404|410/;
+    return undef if $req->method eq 'GET' and $res->code =~ /404|410/;
     die $res unless $res->is_success;
     return $res->content ? decode_json($res->content) : 1;
 }
@@ -122,7 +129,7 @@ WebService::Client - A base role for quickly and easily creating web service cli
 
 =head1 VERSION
 
-version 0.0001
+version 0.0100
 
 =head1 SYNOPSIS
 
@@ -140,6 +147,8 @@ version 0.0001
             $self->ua->default_header('X-Auth-Token' => $self->auth_token);
             # or if the web service uses http basic/digest authentication:
             # $self->ua->credentials( ... );
+            # or
+            # $self->ua->default_headers->authorization_basic( ... );
         }
 
         method get_widgets() {
@@ -174,6 +183,36 @@ the fun part - writing the web service specific code.
 
 It is important to note that this only supports JSON based web services.
 If your web service does not support JSON, then I am sorry.
+
+=head1 ATTRIBUTES
+
+=head2 base_url
+
+This is the only attribute that is required.
+This is the base url that all request will be made against.
+
+=head2 ua
+
+Optional. A proper default LWP::UserAgent will be created for you.
+
+=head2 timeout
+
+Optional.
+Default is 10.
+
+=head2 retries
+
+Optional.
+Default is 0.
+
+=head2 logger
+
+Optional.
+
+=head2 content_type
+
+Optional.
+Default is C<'application/json'>.
 
 =head1 METHODS
 
