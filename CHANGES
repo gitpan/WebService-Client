@@ -1,9 +1,40 @@
 ==================================================
-Changes from 2004-11-14 00:00:00 +0000 to present.
+Changes from 2004-11-19 00:00:00 +0000 to present.
 ==================================================
 
 -------------------------------------------
-version 0.0100 at 2014-11-12 22:10:42 +0000
+version 0.0200 at 2014-11-17 23:56:24 +0000
+-------------------------------------------
+
+  Change: 4898e4ebcfa2095f45ea719d2fd939c77b969f4a
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-17 18:55:22 +0000
+
+    Merge pull request #4 from ironcamel/custom-headers
+
+    allow custom headers to be provided 
+
+  Change: be6ece67554b62ed05ae1f64c61242008551ba2f
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-17 18:54:11 +0000
+
+    v0.0200 
+
+  Change: 4199d427ad05c705baec939cb734d18bdd6ce8fd
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-17 18:50:32 +0000
+
+    use HTTP::Response and HTTP::Request's built in as_string() for
+    logging 
+
+  Change: 63541d4b92c0325754ead75ab2b8de192f28753e
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-17 17:48:36 +0000
+
+    allow custom headers to be provided 
+
+-------------------------------------------
+version 0.0100 at 2014-11-12 22:03:20 +0000
 -------------------------------------------
 
   Change: 7f09133c780ab68789739655e646933fa622f901
