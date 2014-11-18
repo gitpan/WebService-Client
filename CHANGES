@@ -1,10 +1,34 @@
 ==================================================
-Changes from 2004-11-19 00:00:00 +0000 to present.
+Changes from 2004-11-20 00:00:00 +0000 to present.
 ==================================================
 
 -------------------------------------------
-version 0.0200 at 2014-11-17 23:56:24 +0000
+version 0.0201 at 2014-11-18 15:27:46 +0000
 -------------------------------------------
+
+  Change: 62e07ff76045154b85d775f2267cfa83c75c4f79
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-18 10:26:53 +0000
+
+    v0.0201 
+
+  Change: 453481aa994390f8f52cd07c74d4cb086941cbf0
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-18 10:22:58 +0000
+
+    don't squash custom Content-Type header if it is passed in 
+
+  Change: eae81021cbe77207897a8c9d7b42980a25855e6c
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-18 07:59:56 +0000
+
+    allow headers as hashref or arrayref 
+
+  Change: 08e5f209b43fde2bcbdcfa4f38dd6efdee3a77b8
+  Author: Naveed Massjouni <naveedm9@gmail.com>
+  Date : 2014-11-17 19:03:06 +0000
+
+    require HTTP::Response::Stringable v0.0002 
 
   Change: 4898e4ebcfa2095f45ea719d2fd939c77b969f4a
   Author: Naveed Massjouni <naveedm9@gmail.com>
@@ -13,6 +37,10 @@ version 0.0200 at 2014-11-17 23:56:24 +0000
     Merge pull request #4 from ironcamel/custom-headers
 
     allow custom headers to be provided 
+
+-------------------------------------------
+version 0.0200 at 2014-11-17 23:54:11 +0000
+-------------------------------------------
 
   Change: be6ece67554b62ed05ae1f64c61242008551ba2f
   Author: Naveed Massjouni <naveedm9@gmail.com>

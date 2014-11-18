@@ -5,7 +5,7 @@ NAME
 
 VERSION
 
-    version 0.0200
+    version 0.0201
 
 SYNOPSIS
 
@@ -100,19 +100,19 @@ METHODS
     they will simply return undef.
 
     The `get/post/put/delete` methods all can take an optional headers
-    keyword argument that is an arrayref of custom headers.
+    keyword argument that is a hashref of custom headers.
 
  get
 
         $client->get('/foo');
-        $client->get('/foo', headers => [ foo => 'bar' ]);
+        $client->get('/foo', headers => { foo => 'bar' });
 
     Makes an HTTP POST request.
 
  post
 
         $client->post('/foo', { some => 'data' });
-        $client->post('/foo', { some => 'data' }, headers => [foo => 'bar']);
+        $client->post('/foo', { some => 'data' }, headers => { foo => 'bar' });
 
     Makes an HTTP POST request.
 
