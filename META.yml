@@ -21,6 +21,7 @@ meta-spec:
 name: WebService-Client
 requires:
   Carp: 0
+  HTTP::Message: 6.06
   HTTP::Request::Common: 0
   HTTP::Response::Stringable: 0.0002
   JSON: 0
@@ -30,4 +31,4 @@ requires:
 resources:
   bugtracker: https://github.com/ironcamel/WebService-Client/issues
   repository: git://github.com/ironcamel/WebService-Client.git
-version: 0.0201
+version: 0.0202
