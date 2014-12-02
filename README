@@ -5,7 +5,7 @@ NAME
 
 VERSION
 
-    version 0.0202
+    version 0.0203
 
 SYNOPSIS
 
@@ -56,36 +56,6 @@ DESCRIPTION
     kept rewriting the same boilerplate code independent of the web
     service. This module does the boring boilerplate for you so you can
     just focus on the fun part - writing the web service specific code.
-
-    It is important to note that this only supports JSON based web
-    services. If your web service does not support JSON, then I am sorry.
-
-ATTRIBUTES
-
- base_url
-
-    This is the only attribute that is required. This is the base url that
-    all request will be made against.
-
- ua
-
-    Optional. A proper default LWP::UserAgent will be created for you.
-
- timeout
-
-    Optional. Default is 10.
-
- retries
-
-    Optional. Default is 0.
-
- logger
-
-    Optional.
-
- content_type
-
-    Optional. Default is 'application/json'.
 
 METHODS
 
@@ -148,6 +118,33 @@ METHODS
 
     Logs a message using the provided logger.
 
+ATTRIBUTES
+
+ base_url
+
+    This is the only attribute that is required. This is the base url that
+    all request will be made against.
+
+ ua
+
+    Optional. A proper default LWP::UserAgent will be created for you.
+
+ timeout
+
+    Optional. Default is 10.
+
+ retries
+
+    Optional. Default is 0.
+
+ logger
+
+    Optional.
+
+ content_type
+
+    Optional. Default is 'application/json'.
+
 EXAMPLES
 
     Here are some examples of web service clients built with this role. You
@@ -160,6 +157,8 @@ EXAMPLES
       * WebService::Lob
 
       * WebService::SmartyStreets
+
+      * WebService::Stripe
 
 SEE ALSO
 

@@ -31,4 +31,4 @@ requires:
 resources:
   bugtracker: https://github.com/ironcamel/WebService-Client/issues
   repository: git://github.com/ironcamel/WebService-Client.git
-version: 0.0202
+version: 0.0203
